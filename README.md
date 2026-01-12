@@ -1,5 +1,3 @@
-# Insurance ETL Project
-
 # Insurance ETL Pipeline
 
 ## Project Overview
