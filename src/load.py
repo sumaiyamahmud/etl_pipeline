@@ -1,11 +1,19 @@
 import os
 import pandas as pd
 import logging
+import configparser
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
-def load(df, output_folder="../data/processed/claims/"):
+# -------------------------
+# Read clean folder from config
+# -------------------------
+config = configparser.ConfigParser()
+config.read(os.path.join(os.path.dirname(__file__), "../config.ini"))
+clean_folder = config["PATHS"]["clean_folder"]
+
+def load(df, output_folder=clean_folder):
     try:
         if df.empty:
             logging.warning("Empty DataFrame. Nothing to save.")

@@ -1,11 +1,19 @@
 import pandas as pd
 import logging
 import os
+import configparser
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
-def extract(input_folder="../data/raw/claims/"):
+# -------------------------
+# Read raw folder from config
+# -------------------------
+config = configparser.ConfigParser()
+config.read(os.path.join(os.path.dirname(__file__), "../config.ini"))
+raw_folder = config["PATHS"]["raw_folder"]
+
+def extract(input_folder=raw_folder):
     try:
         # For example, read all CSV files in the folder
         files = [f for f in os.listdir(input_folder) if f.endswith(".csv")]
