@@ -102,7 +102,7 @@ Output files will appear in `data/clean/claims/`
 ```python
 username = "postgres"
 password = "your_password"
-database = "analytics_db"
+database = "postgres"
 ```
 3. Run:
 ```
@@ -110,7 +110,7 @@ python load_claims_to_postgres.py
 ```
 4. Verify in pgAdmin:
 ```
-Databases → analytics_db → Schemas → public → Tables → claims
+Databases → postgres → Schemas → public → Tables → claims
 ```
 
 ## Logging
